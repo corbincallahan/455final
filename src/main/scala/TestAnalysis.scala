@@ -12,7 +12,7 @@ object TestAnalysis {
     import spark.implicits._
 
     val testData = spark.read.textFile("hdfs://indianapolis:13198/cs455/final/sitc.tab").rdd.filter(x =>
-      x.split("\t")[1] == "14").count()
+      x.split("\t")(1) == "14").count()
     testData.saveAsTextFile("hdfs://indianapolis:13198/cs455/final/test")
   }
 
